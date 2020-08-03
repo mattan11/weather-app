@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Form from "./Form";
 import Result from "./Result";
 import "./App.css";
+const APIKey = "aeec1f6b19d0406ab75f5182e4799196";
 
 class App extends Component {
   state = {
@@ -22,8 +23,8 @@ class App extends Component {
 
   handleCitySubmit = (e) => {
     e.preventDefault();
-    const currentAPI = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&appid=aeec1f6b19d0406ab75f5182e4799196&units=metric`;
-    const forecastAPI = `http://pro.openweathermap.org/data/2.5/forecast/hourly?q=${this.state.value}&appid=aeec1f6b19d0406ab75f5182e4799196&units=metric`;
+    const currentAPI = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&appid=${APIKey}&units=metric`;
+    const forecastAPI = `http://pro.openweathermap.org/data/2.5/forecast/hourly?q=${this.state.value}&appid=${APIKey}&units=metric`;
 
     fetch(currentAPI)
       .then((response) => {
@@ -33,8 +34,26 @@ class App extends Component {
         throw Error("Fetching error");
       })
       .then((response) => response.json())
-      .then((result) => console.log(result))
-      .catch((err) => console.log(err));
+      .then((data) => {
+        const date = new Date().toLocaleString();
+        this.setState((prevState) => ({
+          error: false,
+          date,
+          city: prevState.value,
+          sunrise: data.sys.sunrise,
+          sunset: data.sys.sunset,
+          temp: data.main.temp,
+          pressure: data.main.pressure,
+          wind: data.wind.speed,
+        }));
+      })
+      .catch((err) => {
+        console.log(err);
+        this.setState((prevState) => ({
+          error: true,
+          city: prevState.value,
+        }));
+      });
   };
   render() {
     return (
@@ -44,7 +63,7 @@ class App extends Component {
           change={this.handleChangeInputValue}
           submit={this.handleCitySubmit}
         />
-        <Result />
+        <Result error={this.state.error} weather={this.state} />
       </div>
     );
   }

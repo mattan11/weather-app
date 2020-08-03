@@ -1,13 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
 
-class Form extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-  render() {
-    return <div>Form</div>;
-  }
-}
+const Form = ({ value, change }) => {
+  return (
+    <form>
+      <input
+        type="text"
+        value={value}
+        onChange={change}
+        placeholder="Type city name..."
+      />
+      <button>Check</button>
+    </form>
+  );
+};
 
 export default Form;

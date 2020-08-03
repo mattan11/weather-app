@@ -15,6 +15,7 @@ class App extends Component {
     pressure: "",
     wind: "",
     error: "",
+    timezone: "",
   };
 
   handleChangeInputValue = (e) => {
@@ -45,6 +46,7 @@ class App extends Component {
           temp: data.main.temp,
           pressure: data.main.pressure,
           wind: data.wind.speed,
+          timezone: data.timezone,
         }));
       })
       .catch((err) => {

@@ -1,0 +1,10 @@
+.result {
+  margin-left: 50px;
+  padding-top: 20px;
+  border-top: 2px solid #ddd;
+}
+
+.result h2,
+.result h4 {
+  font-weight: normal;
+}

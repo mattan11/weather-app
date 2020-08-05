@@ -2,7 +2,7 @@
 This project allows to check current weather globally. Just type a city name and check informations about temperature, pressure, wind etc.
 
 
-## Installing 
+## Install
 To install this project at your computer clone this repository and install all required dependencies.
 
 $ git clone https://github.com/mattan11/weather-app

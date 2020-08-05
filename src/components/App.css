@@ -1,5 +1,25 @@
 .App input,
 .App button {
-  margin: 20px;
+  display: block;
+  margin: 25px auto;
   padding: 10px 20px;
+  border-radius: 30px;
+  border: 2px solid white;
+  text-align: center;
+}
+
+.App input:focus,
+.App button:focus {
+  outline: none;
+}
+
+.App button {
+  min-width: 200px;
+
+  cursor: pointer;
+  background: none;
+  color: white;
+}
+.App input {
+  margin-top: 25vh;
 }

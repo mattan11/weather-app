@@ -2,11 +2,40 @@
 .result h2,
 .result h3,
 .result h4 {
-  margin-left: 40px;
+  margin: 10px 20px;
+  padding: 5px 0;
+  border-bottom: 2px solid #999;
 }
 
 .result h2,
 .result h3,
 .result h4 {
   font-weight: normal;
+}
+
+.result div {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.result h4:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 420px) {
+  .result h1 {
+    font-size: 20px;
+  }
+
+  .result h2 {
+    font-size: 17px;
+  }
+
+  .result h3 {
+    font-size: 15px;
+  }
+
+  .result h4 {
+    font-size: 13px;
+  }
 }

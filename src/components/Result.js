@@ -26,7 +26,7 @@ const Result = (props) => {
 
   if (!error && city) {
     content = (
-      <>
+      <div>
         <h1>Current weather in {city.toUpperCase()}</h1>
         <h2>Date: {date}</h2>
         <h3>Temperature: {temp} [°C]</h3>
@@ -34,7 +34,7 @@ const Result = (props) => {
         <h4>Sunset: {sunsetTime} </h4>
         <h4>Pressure: {pressure} [hPa] </h4>
         <h4>Wind: {wind} [m/s] </h4>
-      </>
+      </div>
     );
   }
   return (
